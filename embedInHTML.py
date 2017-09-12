@@ -196,10 +196,10 @@ if __name__ == '__main__':
 
 		# blobShim borrowed from https://github.com/mholt/PapaParse/issues/175#issuecomment-75597039
 		blobShim =  '(function(b,fname){if(window.navigator.msSaveOrOpenBlob)'
-		blobShim += 'window.navigator.msSaveBlob(b,fname);else{var f = new File([b], fname, {type:"' + mimeType + '"});'
-		blobShim += 'var a=window.document.createElement("a");a.href=window.URL.createObjectURL(f);a.download=fname;'
+		blobShim += 'window.navigator.msSaveOrOpenBlob(b,fname);else{var a=window.document.createElement("a");'
+		blobShim += 'a.href=window.URL.createObjectURL(b, {type:"' + mimeType + '"});a.download=fname;'
 		blobShim += 'document.body.appendChild(a);a.click();document.body.removeChild(a);}})'
-	
+
 		#------------------------------------------------------------------------
 		# Preparing all parameters for substitution in the HTML template
 		rc4Function = rand()
@@ -244,6 +244,7 @@ if __name__ == '__main__':
 			PORT = 80
 			Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
 			httpd = SocketServer.TCPServer(("", PORT), Handler)
+			print color("[+] Starting a web server on port {} serving files from 'output' directory".format(PORT))
 			httpd.serve_forever()
 	else:
 		parser.print_help()
