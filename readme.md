@@ -39,11 +39,11 @@ Few payload examples files are provided in the `payloads_examples` directory. Fo
 
 **Using the HTML/Javascript**
 
-1/ Open the encryptFile.html file with a browser
+1/ Open the embedInHTML.html file within a browser
 
 2/ Simply drag the payload file into the page (*you can optionnaly change the output file name*)
 
-3/ Save the resulting file and take note of the decryption material as URL parameters to be added to the file name
+3/ Save the resulting file and take note of the decryption material as URL parameters to be added to the file name in the form: `http(s)://hosting.server.com/result.html#hexencodedkey!hexencodedcounter`
 
 
 **Eventually...**
